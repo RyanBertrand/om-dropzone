@@ -85,6 +85,8 @@
 
                  (merge (when (:parallel-uploads opts)
                           {:parallelUploads (:parallel-uploads opts)}))
+                 (merge (when (:upload-method opts)
+                          {:method (:upload-method opts)}))
 
                  (merge (when (:upload-url opts)
                           {:url (:upload-url opts)}))
@@ -104,6 +106,7 @@
    (s/optional-key :max-files) s/Int
    (s/optional-key :parallel-uploads) s/Int
    (s/optional-key :upload-multiple) s/Bool
+   (s/optional-key :upload-method) s/Str
    (s/optional-key :clickable) s/Str           ;; CSS selector to make a button an uploader
    (s/optional-key :accepted-files) s/Str})    ;; Allowed extensions, something like: ".png,.js"
 
